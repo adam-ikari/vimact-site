@@ -11,4 +11,4 @@ VimAct 官网的构建产物仓库。这里的文件全部由 `pnpm site:deploy`
 
 ## 仓库内容
 
-`.nojekyll` 关掉 Pages 的 Jekyll 处理，避免下划线前缀的目录被丢弃。`CNAME` 只在 prod 档出现：部署脚本把它写进产物，Pages 据此把仓库绑到 `vimact.is-a.dev`，同时产出 `sitemap.xml`。preview 档两样都没有，其余是 VitePress 输出的静态站点。
+`.nojekyll` 关掉 Pages 的 Jekyll 处理，避免下划线前缀的目录被丢弃。`CNAME` 和 `robots.txt` 只在 prod 档出现：部署脚本把它们写进产物，Pages 据此把仓库绑到 `vimact.is-a.dev`，同时产出 `sitemap.xml`，`robots.txt` 放行整站并把 sitemap 交给爬虫。preview 档三样都没有，靠每个页面 `<head>` 里的 `noindex` 挡住收录（路径型预览读不到站点根的 robots.txt），其余是 VitePress 输出的静态站点。
